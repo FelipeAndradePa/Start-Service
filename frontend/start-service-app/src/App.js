@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route, Redirect, Routes } from 'react-router-dom';
+import Login from './pages/login';
+import Content from './components/content';
+import PrivateRoute from './components/auth';
+import Register from './pages/register';
 
+
+/*O PrivateRoute recebe como element a view que será carregada*/
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+        	<div className="App">
+		   <Router>
+                      <Routes>
+                         <Route path='/' element={<Login />} />
+                         <Route path='/register' element={<Register />} />
+                         <Route path='/content' element={<Content/>}>
+                             <Route path='' element={<PrivateRoute element={<Initial />}/>}/>
+                             <Route path='finalized' element={<PrivateRoute element={<Finalized />}/>} />
+                         </Route>
+                      </Routes>
+                   </Router>
+                </div>
+        );
 }
 
 export default App;
+
+
