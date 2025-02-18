@@ -11,6 +11,8 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+connectDB();
+
 // Definição das rotas
 app.use('/api/auth', authRoutes);
 
