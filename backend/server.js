@@ -3,6 +3,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
+const clientRoutes = require(./routes/clientRoutes);
 require("dotenv-safe").config();
 
 const app = express();
@@ -15,6 +16,7 @@ connectDB();
 
 // Definição das rotas
 app.use('/api/auth', authRoutes);
+app.use('/api/client', clientRoutes);
 
 // Rota Padrão
 app.get('/', (req, res) => {
