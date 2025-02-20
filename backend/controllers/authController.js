@@ -6,13 +6,13 @@ const login = async (req, res) => {
     try {
         const { user, password } = req.body;
 
-        const user = await User.findOne({ email });
-        if (!user) return res.status(400).json({ message: 'Usuário não encontrado!' });
+        const acoount  = await User.findOne({ user });
+        if (!account) return res.status(400).json({ message: 'Usuário não encontrado!' });
 
-        const isMatch = await bcrypt.compare(password, user.password);
+        const isMatch = await bcrypt.compare(password, account.password);
         if (!isMatch) return res.status(400).json({ message: 'Credenciais inválidas!' });
 
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        const token = jwt.sign({ id: account._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
         res.status(200).json({ message: 'Login bem-sucedido!', token });
 

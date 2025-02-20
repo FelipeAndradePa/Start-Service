@@ -23,7 +23,7 @@ const Login = () => {
 
 	try {
 	    setUser(user);
-            const response = await axios.post('http://201.16.213.225:6663/login', { user, password });
+            const response = await axios.post('http://201.16.213.225:6663/api/auth/login', { user, password });
             setState((prev) => ({ ...prev, token: response.data.token }));
             console.log(response.data.token);
             setToken(response.data.token)

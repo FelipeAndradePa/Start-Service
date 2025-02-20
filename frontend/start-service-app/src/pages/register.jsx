@@ -16,7 +16,7 @@ const Register = () => {
 	const { name, user, password } = state;
 	
 	try {
-            const response = await axios.post('http://201.16.213.225:6663/register', { name, user, password });
+            const response = await axios.post('http://201.16.213.225:6663/api/auth/register', { name, user, password });
             console.log(response.data);
             navigate('/');
         } catch (error) {
