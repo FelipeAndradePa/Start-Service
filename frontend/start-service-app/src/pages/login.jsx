@@ -4,8 +4,8 @@ import { useNavigate, Link } from 'react-router-dom';
 
 const getToken = () => localStorage.getItem('token');
 const setToken = (token) => localStorage.setItem('token', token);
-const getUser = () => localStorage.getItem('use');
-const setUser = (user) => localStorage.getItem('user', user);
+const getUser = () => localStorage.getItem('user');
+const setUser = (user) => localStorage.setItem('user', user);
 
 const Login = () => {
      
@@ -23,6 +23,7 @@ const Login = () => {
 
 	try {
 	    setUser(user);
+	    console.log(user);
             const response = await axios.post('http://201.16.213.225:6663/api/auth/login', { user, password });
             setState((prev) => ({ ...prev, token: response.data.token }));
             console.log(response.data.token);

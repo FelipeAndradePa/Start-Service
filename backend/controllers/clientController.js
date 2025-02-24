@@ -69,6 +69,7 @@ const iniciateService = async (req, res) => {
     } catch (error) {
 	console.error('Erro ao iniciar atendimento:', error);
 	return res.status(500).json({ message: 'Erro ao iniciar atendimento', error: error.message });
+    }
 }
 
 module.exports = { searchClient, iniciateService } 

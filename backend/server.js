@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 PORT = process.env.PORT;
-// connectDB();
+connectDB();
 
 // Definição das rotas
 app.use('/api/auth', authRoutes);

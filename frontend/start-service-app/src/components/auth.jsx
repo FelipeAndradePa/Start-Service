@@ -12,7 +12,7 @@ const PrivateRoute = ({ element }) => {
     useEffect(() => {
 	const checkAuthentication = async () => {
         try {
-          const response = await axios.get('http://localhost:3001/auth', {
+          const response = await axios.get('http://201.16.213.225:6663/api/auth/verify', {
             headers: {Authorization: token},
           });
           if(response.status === 200) {
