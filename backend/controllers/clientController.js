@@ -1,6 +1,6 @@
 const axios = require('axios');
 const FormData = require('form-data');
-
+const searchByRamal = require('../AMI/searchCall.js'); 
 const searchClient = async (req, res) => {
 
     try {
@@ -42,12 +42,13 @@ const searchClient = async (req, res) => {
 const iniciateService = async (req, res) => {
    
     try {
-	const { telefone, codigoUsuario, arquivos } = req.body;
-	
+	const { codigoUsuario, documento } = req.body;
+	console.log(documento);
+        const arquivos = '';
 	const data = {
 	    login: 'techline',
 	    senha: '3biTObwmCnyZcqndXWaoDipOoILA4C',
-	    telefone,
+	    documento,
             codigoUsuario,
 	    arquivos
 	};

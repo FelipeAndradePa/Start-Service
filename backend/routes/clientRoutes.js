@@ -5,6 +5,6 @@ const authMiddleware = require('../middleware/authMiddleware');
 const router = express.Router();
 
 router.post('/:plate', searchClient);
-router.post('/', authMiddleware, iniciateService);
+router.post('/', iniciateService);
 
 module.exports = router;
