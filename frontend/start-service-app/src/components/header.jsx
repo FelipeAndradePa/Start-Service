@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { getUser } from '../pages/login';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Header = () => {
 
     const [name, setName] = useState('');
+    const [isOpen, setIsOpen] = useState(false);
+    
     let user = '';
 
     useEffect(() => {
@@ -26,12 +29,23 @@ const Header = () => {
         getName();
     }, [user]); // Este efeito só roda quando `user` for atualizado
     
+    const toggleDropdown = () => {
+	let dropdown = document.querySelector('#dropdownButton #dropdown');
+	dropdown.classList.toggle("hidden");
+    };
+
     return (
-        <header className="py-12 flex flex-row justify-end">
-            <div>
-               <span>Olá, {name}!</span>
-            </div>
-        </header>
+	<header className="py-12 flex flex-row justify-end">
+	    <div className="relative" id="dropdownButton">
+               <div onClick={toggleDropdown} className="border-solid border-gray-400 border-{1px} px-5 py-2 rounded cursor-pointer font-bold flex justify-between w-[200px] bg-white shadow-sm">
+                   <FontAwesomeIcon  icon="circle-user" className="text-lg" />
+                   {name}
+               </div>
+	       <div id="dropdown" className="rounded border-[1px] border-gray-300 bg-white absolute top-[40px] w-[200px] shadow-md hidden">
+	      	   <div className="cursor-pointer p-4"> Sair </div>
+	       </div>
+             </div>
+        </header>   
     );
 };
 

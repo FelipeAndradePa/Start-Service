@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Navbar = () => {
@@ -15,11 +15,11 @@ const Navbar = () => {
 	    <div className='mx-auto py-8 max-w-7xl sm:px-6 lg:px-8'>
 		<button className="hover:bg-zinc-50 py-2 rounded-lg w-full flex flex-row justify-start items-center">
                      <FontAwesomeIcon  icon="circle-user" className="text-lg"/>
-                     <span className="ms-2 text-lg">Realizar consulta</span>
+                     <Link to='' className="ms-2 text-lg">Realizar consulta</Link>
                 </button>
 		<button className="hover:bg-zinc-50 py-2 rounded-lg w-full flex flex-row justify-start items-center">
                      <FontAwesomeIcon  icon="list" className="text-lg"/>
-                     <span className="ms-2 text-lg">Relatórios</span>
+                     <Link to='reports' className="ms-2 text-lg">Relatórios</Link>
                 </button> 
 	    </div>
 	</nav>
